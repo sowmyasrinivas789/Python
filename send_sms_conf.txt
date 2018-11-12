@@ -1,0 +1,8 @@
+1. https://www.twilio.com/console/projects/signup
+2. 
+virtualenv sendsms
+source sendsms/bin/activate
+pip install twilio>=6.0.0
+grab our account credentials from the Twilio Console to connect our Python code to our Twilio account Go to the Twilio Console and copy the Account SID and Authentication Token into your Python code.
+ACCOUNT SID: AC3a291e1ba34429c9c6c694e5424c9280
+AUTH TOKEN: 82c9d19e5efd5c34579694d35bfabd16
