@@ -1,0 +1,79 @@
+.bg_cover{
+	background-image:url('images/eye-6.jpg');
+	color:black;
+}
+.head{
+	font-family:'Comic Sans MS';
+	color:orange;
+}
+.close{
+	font-size:2.5em;
+	color:purple;
+}
+input::-webkit-input-placeholder {
+    font-size: 18px;
+}
+.result_con{
+	top:20px;
+	position:absolute;
+	font-size:20px;
+	padding:10px 10px 80px 50px;
+	background:white;
+}
+.bill_section{
+	display:none;
+	position:absolute;
+	font-size:20px;
+	background:white;
+	top:50px;
+	z-index:10;
+}
+#print_bill_section{
+	padding:5px 100px 60px 5px;
+	outline: 1px solid lightgrey;
+	outline-offset: -20px;
+	border-radius: 5px;
+}
+#user_search_info{
+	font-size:30px;
+	text-shadow:-22px 15px 3px grey;
+}
+button{
+	margin-top:20px;
+	width:100px;
+	box-shadow: 8px 10px 20px 0 rgba(46,61,73,.5);
+}
+td button {
+	width:60px;
+}
+.disable_text {
+	border:transparent;
+	background:inherit;
+	color:black;
+}
+tr td{
+	border:1px solid black !important;
+	padding:10px !important;
+}
+input[type='text']{
+	width:130px;
+	border-radius:4px;
+	height:30px;
+	text-align:center;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+}

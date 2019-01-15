@@ -1,0 +1,25 @@
+body, html {
+  margin:0px;
+  height: 100%;
+}
+.header{
+	font-family: Boing-Bold,'Arial Black',sans-serif;
+}
+.title{
+	font-size:2em;
+}
+.myLogo { 
+	padding: 5px 20px; 
+}
+.container-fluid{
+	padding: 10px;
+}
+.navbar{
+	border-radius: 0px; 
+	background-color: #222;
+}
+.head{
+	font-size: 30px;
+	padding: 15px 0px 30px 10px;
+	font-weight: bold;
+}

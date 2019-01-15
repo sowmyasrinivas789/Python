@@ -1,0 +1,289 @@
+{% extends "header.html" %}
+{% block page_content %}
+	<script src="{{ url_for('static', filename='js/eye.js') }}"></script>
+	<link href="{{ url_for('static', filename='css/search.css') }}" rel="stylesheet">
+	<div class="col-md-12">
+		<div class="col-md-6 col-md-offset-3 head">Customer Search</div>
+		<div class="col-md-6 col-md-offset-3">
+			<form action="" id="user_search_info" method="post">
+				<div>
+					<label for="phone">Mobile... </label>
+					<input type="number" id="phone" name="phone" style="border-radius:4px;"></br></br>
+					<!--
+					<center><input type="button" value="Search" class="button ptr" id="user_search">
+							<span><a href="/register" class="td_none">New User</a></span>
+					</center> 
+					-->
+				</div>
+			</form>
+		</div>
+	</div>
+	{% if output %}
+	<div class="col-md-10 col-md-offset-1 result_con">
+		<div class="col-md-12">
+			<button type="button" id="close_result_con" class="close" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-12 section">
+				<div class="head">Customer details:</div>
+				{% if (output is string) %}
+					<p>{{ output }}</p>
+				{% else %}
+					<form action="" method="post">
+						<table class="table-bordered user_details">
+							<tr>
+								<td>Customer Id</td>
+								<td>First Name</td>
+								<td>Phone No.</td>
+								<td>Email</td>
+								<td>Gender</td>
+								<td>Age</td>
+								<td>Address</td>
+							</tr>
+							<tr>
+								<td><center>{{ output.user_id }}</center>
+								<input type="hidden" name="user_id" value="{{ output.user_id }}">
+								</td>
+								<td><input type="text" name="fname" value="{{ output.first_name }}" disabled></td>
+								<td><input type="text" name="phone" value="{{ output.mobile }}" disabled></td>
+								<td><input type="text" name="email" value="{{ output.email }}" disabled></td>
+								<td><input type="text" name="gender" value="{{ output.gender }}" disabled></td>
+								<td><input type="text" name="age" value="{{ output.age }}" disabled></td>
+								<td><input type="text" name="address" value="{{ output.address }}" disabled></td>
+							</tr>
+						</table>
+						<button type="button" id="edit" class="btn btn-warning">Edit</button>
+						<button type="button" id="save" class="btn btn-warning" style="display:none">Save</button>
+					</form>
+				{% endif %}
+			</div>
+			{% if power_info %}
+			<div class="col-md-12 col-md-offset-0 section">
+				<div class="head">Purchase details:</div>
+				<table class="table-bordered">
+					<thead style="font-weight:bold;">
+						<td>Lens Brand</td>
+						<td>Right Power</td>
+						<td>Left Power</td>
+						<td>Price</td>
+						<td>Paid</td>
+						<td>Balance</td>
+						<td>Purchase Date</td>
+						<td>Bill</td>
+					</thead>
+					{% for power in power_info %}
+					<tbody>
+						<tr>
+							<td>{{ power.lens_brand }}</td>
+							<td>{{ power.right_power }}</td>
+							<td>{{ power.left_power }}</td>
+							<td>{{ power.price }}</td>
+							<td>{{ power.paid }}</td>
+							<td>{{ power.price - power.paid }}</td>
+							<td>{{ power.purchase_date }}</td>
+							<td><button type="button" id="bill_id" class="btn btn-warning print">Print</button></td>
+						</tr>
+					<tbody>
+					{% endfor %}
+				</table>
+			</div>
+			<div class="col-md-12 col-md-offset-0 section">
+				<form action="" method="post">
+					<div class="head">Purchase Again:</div>
+					<div class="col-md-12 col-md-offset-0">
+						<input type="hidden" name="user_id" value="{{ output.user_id }}" class="">
+						<label><input type="text" name="lbrand" placeholder="Lens Brand" class="purchase"></label>
+						<label><input type="text" name="right_power" placeholder="Right Power" class="purchase"></label>
+						<label><input type="text" name="left_power" placeholder="Left Power" class="purchase"></label>
+						<label><input type="text" name="price" placeholder="Price" class="purchase"></label>
+						<label><input type="text" name="paid" placeholder="Paid" class="purchase"></label>
+						</br>
+						<button type="button" id="add" class="btn btn-warning">Buy</button>
+					</div>
+				</form>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+	{% endif %}
+	<div class="col-md-8 col-md-offset-2 bill_section">
+		<div class="col-md-12">
+			<div class="col-md-4 col-md-offset-6">
+				<!-- <a href="#" id="print_bill" class="btn btn-success btn-lg right">
+					<span class="glyphicon glyphicon-print"></span> Print 
+				</a> -->
+				<button type="button" id="print_bill" class="close" aria-label="Close">
+					<span aria-hidden="true">Print</span>
+				</button>
+				<button type="button" id="close_bill_section" class="close" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		</div>
+		<div class="col-md-12" id="print_bill_section">
+			<div class="head col-md-8 col-md-offset-4">VASAPPA EYE CARE, TARIKERE</div>
+			<div class="col-md-12">
+				<div class="col-md-4 col-md-offset-1">
+					<hr>
+					<p><label>NAME:</label> {{ output.first_name }}</p>
+					<p><label>AGE:</label> {{ output.age }}</p>
+					<p><label>MOBILE:</label> {{ output.mobile }}</</p>
+				</div>
+				<hr>
+				<div class="nithin col-md-4 col-md-offset-3">
+					<label>Contact Person</label>
+					<p>Nithin Prasad T R</p>
+					<p>DOT.BOOT.OPTOMETRY</p>
+					<p>8722558049</p>
+				</div>
+			</div>
+			<div class="col-md-11 col-md-offset-1">
+				<hr>
+				<div class="">Product Details-</div>
+				<table class="table-bordered">
+					<thead>
+						<td></td>
+						<td>BARCODE</td>
+						<td>BRAND MODEL CATEGORY</td>
+						<td colspan="3">COATING TINT UNIT</td>
+					</thead>
+					<tbody>
+						<tr>
+							<td>FRAME</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>LENS</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					<tbody>
+				</table>
+			</div>
+			<div class="col-md-11 col-md-offset-1">
+				<hr>
+				<div class="">Pricing Details-</div>
+				<table class="table-bordered">
+					<thead>
+						<td></td>
+						<td>QTY Rate(Per Item)</td>
+						<td>TOTAL DISCOUNT</td>
+						<td colspan="2">TAXABLE VALUE</td>
+						<td>CGST RATE</td>
+					</thead>
+					<tbody>
+						<tr>
+							<td>FRAME</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>LENS</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					<tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function() {
+			$('#close_result_con').click(function(){
+				$(".result_con").hide();
+			});
+			$('#close_bill_section').click(function(){
+				$(".bill_section").hide();
+				$('.result_con').show()
+			});
+
+			$('#print_bill').click(function(){
+				var PW = window.open('', '_blank', 'Print content');
+				PW.document.write(document.getElementById("print_bill_section").innerHTML);
+				PW.document.close();
+				PW.focus();
+				PW.print();
+				PW.close();
+			});
+			$('#user_search').click(function() {
+				$.ajax({
+					url: '/search',
+					data: $('form').serialize(),
+					type: 'POST',
+					success: function(response) {
+						//alert("search successful", response);
+						window.location.reload();
+					},
+					error: function(error) {
+						//alert("Failed", error);
+					}
+				});
+			});
+			$('#add').click(function() {
+				$.ajax({
+					url: '/shop_more',
+					data: $('form').serialize(),
+					type: 'POST',
+					success: function(response) {
+						//alert("search successful", response);
+						window.location.reload();
+					},
+					error: function(error) {
+					}
+				});
+			});
+			$('#edit').click(function() {
+				$(".user_details input").removeAttr('disabled');
+				$('#save').show(300)
+			});
+			$('#save').click(function() {
+				$.ajax({
+					url: '/save_edit_info',
+					data: $('form').serialize(),
+					type: 'POST',
+					success: function(response) {
+						alert("User Info Saved")
+					},
+					error: function(error) {
+						alert("problem while saving...")
+					}
+				});
+				$(".user_details input").attr('disabled','disabled');
+			});
+			$('.print').click(function() {
+				$('.bill_section').css("display","block")
+				$('.result_con').hide()
+			});
+			/*
+			$('p').click(function() {
+				$.ajax({
+					url: '/print_bill_info',
+					data: $('form').serialize(),
+					type: 'POST',
+					success: function(response) {
+						window.location.reload();
+					},
+					error: function(error) {
+						alert("error while loading print bill data...")
+					}
+				});
+			});
+			*/
+		});
+	</script>
+{% endblock %}

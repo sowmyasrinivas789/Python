@@ -1,0 +1,47 @@
+.bg_cover{
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+.ablt{
+	position:absolute;
+}
+.center{
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+}
+.ft_lt{
+	float:left;
+}
+.ft_rt{
+	float:right;
+}
+.hide{
+	display:none;
+}
+.td_none{
+	text-decoration:none;
+}
+.ptr{
+	cursor:pointer;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+	
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+	
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+	
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}

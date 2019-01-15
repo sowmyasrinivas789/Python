@@ -1,0 +1,11 @@
+{% extends "header.html" %}
+
+{% block page_content %}
+	<link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet">
+	<div class ="contents">
+		<div class="customer" id="new-cust"><a href="/register">New Customer</a></div>
+		<div class="customer" id="old-cust"><a href="/search">Search Customer Details</a></div>
+		<div class="customer" id="all-cust"><a href="/details">All the Customers Details</a></div>
+		<div class="customer" id="today-cust"><a href="/tcust">Today's Customers Details</a></div>
+	</div>
+{% endblock %}

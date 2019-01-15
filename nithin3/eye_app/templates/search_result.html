@@ -1,0 +1,65 @@
+{% extends "header.html" %}
+{% block page_content %}
+	<link href="{{ url_for('static', filename='css/details.css') }}" rel="stylesheet">
+	<div class="">
+		<div class="col-md-4 col-md-offset-6 head">Today's Customers List</div>
+		<div class="col-md-7 col-md-offset-2">
+			{% if customers %}
+				<div class="col-md-12 result_con">
+					<table class="table-bordered" style="background:white;">
+						<thead>
+							<td>Customer Id</td>
+							<td>First Name</td>
+							<td>Phone No.</td>
+							<td>Age</td>
+							<td>Right Power</td>
+							<td>Left Power</td>
+							<td>Lens Brand</td>
+							<td>Price</td>
+						</thead>
+						<tbody>
+							{% for customer in customers %}
+							<tr>
+								<td>{{ customer[0] }}</td>
+								<td>{{ customer[1] }}</td>
+								<td>{{ customer[2] }}</td>
+								<td>{{ customer[5] }}</td>
+								<td>{{ customer[10] }}</td>
+								<td>{{ customer[9] }}</td>
+								<td>{{ customer[6] }}</td>
+								<td>{{ customer[12] }}</td>
+							</tr>
+							{% endfor %}
+						<tbody>
+					</table>
+				</div>
+			{% else %}
+				<div class="col-md-7 col-md-offset-7s head"> No customers Today </div>
+			{% endif %}
+		</div>
+	</div>
+
+	{% if export %}
+		<button type="button" id="export" class="btn btn-warning">Export customer info</button>
+		<button type="button" id="export" class="btn btn-warning">Export spectacles info</button>
+	{% endif %}
+
+	<script>
+		$(document).ready(function() {
+			$('#export').click(function(e) {
+				$.ajax({
+					url: '/export_to_excel',
+					data: $('form').serialize(),
+					type: 'POST',
+					success: function(response) {
+						alert("successfully Exported" + JSON.stringify(response));
+					},
+					error: function(error) {
+						alert("Problem in export" + JSON.stringify(error));
+					}
+				});
+				e.preventDefault();
+			});
+		});
+	</script>
+{% endblock %}

@@ -1,0 +1,22 @@
+label{
+	color:black;
+	text-shadow: 3px 0px 5px rgba(255, 255, 255)
+}
+input:hover {
+	background-color:lightgrey;
+}
+.bg_cover{
+	background-image:url('images/sp-4.jpg');
+	font-family:'Comic Sans MS';
+	//-webkit-font-smoothing: antialiased;
+}
+.buttons input{
+	background:rgb(253, 60, 51);
+	font-weight:bold;
+	border: .125rem solid transparent;
+	box-shadow: 8px 10px 20px 0 rgba(46,61,73,.5);
+}
+.buttons input:hover{
+	background:rgb(219, 68, 55);
+	box-shadow: 5px 6px 20px 0 rgba(46,61,73,0.5)
+}

@@ -1,0 +1,22 @@
+.head{
+	color:#00bcd4;
+}
+table {
+	border-radius:10px;
+	font-family:sans-serif;
+}
+thead{
+	color:#00bcd4;
+	font-size:20px;
+	background:;
+}
+tr td{
+	border:1px solid black !important;
+	padding:10px;
+	text-align:center;
+	font-weight:bold;
+}
+.bg_cover{
+	background-image:url('images/eye-5.jpg');
+	font-family: Boing-Bold,'Arial Black',sans-serif;
+}

@@ -1,0 +1,18 @@
+.contents{
+	text-align:center;
+	margin-top:3%;
+}
+.customer{
+	line-height:80px;
+	opacity:.3;
+	background:pink;
+	margin:15px;
+}
+.customer a{
+	text-decoration:none;
+	color:black;
+	font-size:50px;
+}
+.bg_cover{
+	background-image:url('images/eye-1.png');
+}
