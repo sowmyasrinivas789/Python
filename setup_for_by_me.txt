@@ -1,0 +1,57 @@
+Installation
+-----------------------------------------------------------------
+python
+----------------
+install python 3.6
+
+-----------------------------------------------------------------
+Django
+-----------------
+python -m virtualenv .
+.\scripts\activate
+install modules:
+pip install django
+django-admin --version 
+
+project creation:
+django-admin startproject mysite
+python manage.py runserver 8080
+python manage.py startapp polls
+
+-----------------------------------------------------------------
+PostgreSQL
+-----------------
+pip install psycopg2
+
+Not clear about below line
+CREATE ROLE administrator WITH LOGIN CREATEDB CREATEROLE PASSWORD '1234';
+
+in settings.py:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'db_name',                      
+        'USER': 'db_user',
+        'PASSWORD': 'db_user_password',
+        'HOST': '',
+        'PORT': 'db_port_number',
+    }
+}
+
+------------------------------------------------------------------
+bootstrap
+----------------
+
+pip install django-bootstrap3
+In your project add django-bootstrap3 to requirements.txt
+'bootstrap3' Add to INSTALLED_APPS in settings.py
+
+usage in code: 
+{# Load the tag library #}
+{% load bootstrap3 %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+-------------------------------------------------------------------
